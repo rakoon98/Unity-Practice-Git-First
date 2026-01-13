@@ -9,36 +9,40 @@ public class PlayerController : MonoBehaviour
     
     public float moveSpeed = 5f;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private ShopNPC nearbyNPC; // 현재 근처에 있는 NPC 저장
+    
     void Start()
     {
         
     }
 
     void Update()
-    {
-        // // 1. 키보드 입력 받기 (WASD 혹은 방향키)
-        // float h = Input.GetAxisRaw("Horizontal"); // A, D
-        // float v = Input.GetAxisRaw("Vertical");   // W, S
-
-        // // 2. 이동 방향 계산
-        // Vector3 moveDir = new Vector3(h, 0, v).normalized;
-
-        // // 3. 실제 이동 처리
-        // transform.position += moveDir * moveSpeed * Time.deltaTime;
-
-        // // 4. 이동 방향 바라보기 (보너스: 캐릭터 회전)
-        // if (moveDir != Vector3.zero)
-        // {
-        //     transform.forward = moveDir;
-        // }
-        
+    {        
         Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y);
         transform.position += moveDir * moveSpeed * Time.deltaTime;
         
         if (moveDir != Vector3.zero)
             transform.forward = moveDir;
+    }
+
+    // 05단계에서 만든 트리거 로직을 활용
+    void OnTriggerEnter(Collider other)
+    {
+        // 07단계 핵심: 컴포넌트 통신 (대상에게 ShopNPC 컴포넌트가 있는지 확인)
+        if (other.TryGetComponent<ShopNPC>(out ShopNPC npc))
+        {
+            nearbyNPC = npc;
+            Debug.Log($"{npc.shopName} 범위 진입. (E키를 누르세요)");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("NPC"))
+        {
+            nearbyNPC = null;
+            Debug.Log("상점 범위를 벗어남.");
+        }
     }
 
     // 1. Move 액션 메시지 수신 (Input System이 자동 호출)
@@ -59,5 +63,15 @@ public class PlayerController : MonoBehaviour
     public void OnInteract()
     {
         Debug.Log("상호작용 버튼(E) 눌림!");
+
+        if (nearbyNPC != null)
+        {
+            nearbyNPC.OpenShop(); // NPC의 함수를 직접 호출!
+        }
+        else
+        {
+            Debug.Log("상호작용할 대상이 없습니다.");
+        }
     }
+    
 }

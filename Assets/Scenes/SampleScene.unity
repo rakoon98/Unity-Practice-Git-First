@@ -923,6 +923,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1984050460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984050454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a46c9a7c447ad64dba8f08304fc2d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopNPC
+  shopName: "\uAC15\uD654 \uC0C1\uC810"
 --- !u!1001 &3937341126186485554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -986,6 +999,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6516571700142827685, guid: 55f213702cde8d24abad0b36825ae534, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1984050459}
+    - targetCorrespondingSourceObject: {fileID: 6516571700142827685, guid: 55f213702cde8d24abad0b36825ae534, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1984050460}
   m_SourcePrefab: {fileID: 100100000, guid: 55f213702cde8d24abad0b36825ae534, type: 3}
 --- !u!1001 &6720811310922543915
 PrefabInstance:
@@ -1037,6 +1053,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8400460063146007739, guid: 54fe5832c6f63ef469a30e1776aa7a07, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400460063146007739, guid: 54fe5832c6f63ef469a30e1776aa7a07, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
