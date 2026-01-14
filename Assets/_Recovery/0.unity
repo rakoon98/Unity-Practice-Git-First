@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b309676143a044db6ea4db805bab2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatHandler
-  baseData: {fileID: 11400000, guid: 9a709d29de4b08e4e82b85d17502a6c1, type: 2}
+  baseData: {fileID: 0}
   currentMoveSpeed: 5
   currentAttackPower: 1
 --- !u!1 &891909941
