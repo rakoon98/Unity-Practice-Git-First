@@ -41,7 +41,8 @@ public class StatHandler : MonoBehaviour
         // 실제 플레이어 컨트롤러에 속도 전달
         if(TryGetComponent<PlayerController>(out PlayerController pc))
         {
-            Debug.Log($"속도 적용 pc.moveSpeed = currentMoveSpeed [{currentMoveSpeed}]");
+            int speed = Mathf.RoundToInt(currentMoveSpeed);
+            Debug.Log($"속도 적용 pc.moveSpeed = currentMoveSpeed [{speed}]");
             pc.moveSpeed = currentMoveSpeed;
         } else
         {
